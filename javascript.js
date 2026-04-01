@@ -14,4 +14,5 @@ function getHumanChoice(){
     return(prompt("Enter R for Rock, P for Paper, or S for Scissors: "));
 }
 
-console.log(getHumanChoice());
+let humanScore = 0;
+let computerScore = 0;
