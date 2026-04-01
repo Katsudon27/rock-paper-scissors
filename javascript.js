@@ -9,3 +9,9 @@ function getComputerChoice(){
         return("scissors");
     }
 }
+
+function getHumanChoice(){
+    return(prompt("Enter R for Rock, P for Paper, or S for Scissors: "));
+}
+
+console.log(getHumanChoice());
