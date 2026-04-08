@@ -87,11 +87,20 @@ function playGame(){
         });
     });
 
-    //playRound(humanSelection, computerSelection);
-    console.log("\n");
-    console.log("Current Score");
-    console.log("Human player: " + humanScore);
-    console.log("Computer: " + computerScore);
+    const displayResult = document.createElement("div");
+
+    const currentScore = document.createElement("p");
+    currentScore.textContent = "Current Score";
+
+    const displayPlayerScore = document.createElement("p");
+    displayPlayerScore.textContent = "Human player: " + humanScore;
+
+    const displayComputerScore = document.createElement("p");
+    displayComputerScore.textContent = "Computer: " + humanScore;
+
+    displayResult.appendChild(currentScore);
+    displayResult.appendChild(displayPlayerScore);
+    displayResult.appendChild(displayComputerScore);
 
     determineWinner(humanScore, computerScore);
 }
