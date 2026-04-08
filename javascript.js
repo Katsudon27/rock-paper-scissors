@@ -62,15 +62,27 @@ function playGame(){
         }
     }
 
-    for (let i = 0; i < 5; i++){
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-        console.log("\n");
-        console.log("Current Score");
-        console.log("Human player: " + humanScore);
-        console.log("Computer: " + computerScore);
-    }
+    const body = document.querySelector("body");
+
+    const rockButton = document.createElement("button");
+    rockButton.textContent = "Rock";
+
+    const paperButton = document.createElement("button");
+    paperButton.textContent = "Paper";
+
+    const scissorsButton = document.createElement("button");
+    scissorsButton.textContent = "Scissors";
+
+    body.appendChild(rockButton);
+    body.appendChild(paperButton);
+    body.appendChild(scissorsButton);
+
+    const computerSelection = getComputerChoice();
+    //playRound(humanSelection, computerSelection);
+    console.log("\n");
+    console.log("Current Score");
+    console.log("Human player: " + humanScore);
+    console.log("Computer: " + computerScore);
 
     determineWinner(humanScore, computerScore);
 }
