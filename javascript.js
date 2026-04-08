@@ -62,6 +62,8 @@ function playGame(){
         }
     }
 
+    const computerSelection = getComputerChoice();
+
     const body = document.querySelector("body");
 
     const rockButton = document.createElement("button");
@@ -77,7 +79,14 @@ function playGame(){
     body.appendChild(paperButton);
     body.appendChild(scissorsButton);
 
-    const computerSelection = getComputerChoice();
+    const buttons = document.querySelectorAll("button");
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            playRound(button.textContent, computerSelection);
+        });
+    });
+
     //playRound(humanSelection, computerSelection);
     console.log("\n");
     console.log("Current Score");
