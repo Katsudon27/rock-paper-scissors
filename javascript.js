@@ -24,41 +24,43 @@ function playGame(){
     
     function playRound(humanChoice, computerChoice){
         humanChoice = humanChoice.toLowerCase();
+        roundResult = document.createElement("p");
+
+        const displayResult = document.getElementById("displayResult");
+        displayResult.appendChild(roundResult);
 
         if ((humanChoice == "rock" && computerChoice == "scissors") |(humanChoice == "paper" && computerChoice == "rock") | (humanChoice == "scissors" && computerChoice == "paper")){
             switch (humanChoice) {
                 case "rock":
-                    console.log("You win! Rock beats Scissors.");
+                    roundResult.textContent = "You win! Rock beats Scissors.";
                     break;
                 
                 case "scissors":
-                    console.log("You win! Scissors beats Paper.");
+                    roundResult.textContent = "You win! Scissors beats Paper.";
                     break;
                 
                 case "paper":
-                    console.log("You win! Paper beats Rock.");
+                    roundResult.textContent = "You win! Paper beats Rock.";
                     break;
             }
             humanScore += 1;
         }else{
             switch (computerChoice) {
                 case "rock":
-                    console.log("You lose! Rock beats Scissors.");
+                    roundResult.textContent = "You lose! Rock beats Scissors.";
                     break;
                 
                 case "scissors":
-                    console.log("You lose! Scissors beats Paper.");
+                    roundResult.textContent = "You lose! Scissors beats Paper.";
                     break;
                 
                 case "paper":
-                    console.log("You lose! Paper beats Rock.");
+                    roundResult.textContent = "You lose! Paper beats Rock.";
                     break;
             }
             computerScore += 1;
         }
     }
-
-    const body = document.querySelector("body");
 
     const buttons = document.querySelectorAll("button");
 
