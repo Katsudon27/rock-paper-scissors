@@ -10,15 +10,11 @@ function getComputerChoice(){
     }
 }
 
-function getHumanChoice(){
-    return(prompt("Enter Rock, Paper, or Scissors: "));
-}
-
 function determineWinner(humanScore, computerScore){
     if(humanScore > computerScore){
-        console.log("You managed to beat the computer!");
+        return "You managed to beat the computer!";
     }else{
-        console.log("You lost to the computer!");
+        return "You lost to the computer!";
     }
 }
 
@@ -62,47 +58,15 @@ function playGame(){
         }
     }
 
-    const computerSelection = getComputerChoice();
-
     const body = document.querySelector("body");
-
-    const rockButton = document.createElement("button");
-    rockButton.textContent = "Rock";
-
-    const paperButton = document.createElement("button");
-    paperButton.textContent = "Paper";
-
-    const scissorsButton = document.createElement("button");
-    scissorsButton.textContent = "Scissors";
-
-    body.appendChild(rockButton);
-    body.appendChild(paperButton);
-    body.appendChild(scissorsButton);
 
     const buttons = document.querySelectorAll("button");
 
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
-            playRound(button.textContent, computerSelection);
+            playRound(button.textContent, getComputerChoice());
         });
     });
-
-    const displayResult = document.createElement("div");
-
-    const currentScore = document.createElement("p");
-    currentScore.textContent = "Current Score";
-
-    const displayPlayerScore = document.createElement("p");
-    displayPlayerScore.textContent = "Human player: " + humanScore;
-
-    const displayComputerScore = document.createElement("p");
-    displayComputerScore.textContent = "Computer: " + humanScore;
-
-    displayResult.appendChild(currentScore);
-    displayResult.appendChild(displayPlayerScore);
-    displayResult.appendChild(displayComputerScore);
-
-    determineWinner(humanScore, computerScore);
 }
 
 playGame();
